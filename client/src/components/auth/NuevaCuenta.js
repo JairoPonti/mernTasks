@@ -41,12 +41,12 @@ const onSubmit=e=>{
              <div className="campo-form">
             <label htmlFor="nombre">Nombre</label>
             <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Tu nombre"
-              value={nombre}
-              onChange={onChange}
+               type="text"
+               id="nombre"
+               name="nombre"
+               placeholder="Tu nombre"
+               value={nombre}
+               onChange={onChange}
             />
           </div>
           <div className="campo-form">

@@ -1,5 +1,6 @@
 const Proyecto = require('../models/Proyecto');
 const { validationResult } = require('express-validator');
+const { findOneAndRemove } = require('../models/Proyecto');
 
 exports.crearProyecto = async (req, res) => {
       
@@ -66,12 +67,47 @@ exports.actualizarProyecto = async (req, res) => {
            }
 
            // verificar el creador del proyecto
-           
+           if(proyecto.creador.toString() !== req.usuario.id) {
+               return res.status(401).json({msg: 'No Autorizado'});
+           }
 
            // actualizar
+           proyecto= await Proyecto.findByIdAndUpdate({ _id: req.params.id}, {$set:
+             nuevoProyecto}, {new: true});
+
+             res.json({proyecto});
+             
        } catch (error) {
            console.log(error);
            res.status(500).send('Error en el Servidor');
            
        }
+}
+
+// Elimina un proyecto por su Id
+exports.eliminarProyecto = async (req, res) => {
+ try {
+       //Revisar el id
+       console.log(req.params.id);
+       let proyecto = await Proyecto.findById(req.params.id);
+
+        // si el proyecto existe o no
+        if(!proyecto) {
+            return res.status(404).json({msg: 'Proyecto no encontrado'});
+        }
+
+        // verificar el creador del proyecto
+        if(proyecto.creador.toString() !== req.usuario.id) {
+            return res.status(401).json({msg: 'No Autorizado'});
+        }
+   
+        //Eliminar el Proyecto
+        await Proyecto.findOneAndRemove({ _id : req.params.id});
+        res.json({ msg: 'Proyecto eliminado'})
+
+
+ } catch (error) {
+     console.log(error);
+     res.status(500).send('Error en el servidor')
+ }   
 }
