@@ -13,7 +13,7 @@ import {
     LOGIN_ERROR,
     CERRAR_SESION,
 } from '../../types'
-import authContext from './authContext';
+// import authContext from './authContext';
 
 const AuthState = props => {
    const initialState= {

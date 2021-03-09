@@ -9,6 +9,7 @@ const Barra = () => {
  
        useEffect(() => {
          usuarioAutenticado();
+           //eslint-disable-next-line
        }, [])
 
     return (
@@ -19,7 +20,7 @@ const Barra = () => {
 
             <nav className="nav-principal">
              <button
-               className="btn btn-blank cerrar-sesion"
+               className="btn btn-sesion cerrar-sesion"
                onClick={() => cerrarSesion()}
                >Cerrar Sesión</button>
             </nav>
