@@ -88,6 +88,14 @@ a {
   background-color: transparent;
 }
 
+.btn-sesion {
+  color: var(--blanco);
+  margin: 0;
+  padding: 0;
+  display: block;
+  background-color: transparent;
+}
+
 @media (min-width: 768px) {
   .contenedor-app {
       display: flex;
