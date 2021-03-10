@@ -44,6 +44,7 @@ Mern Tasks es un sitio web desarrollado para administrar proyectos y tareas. Se 
 
 <strong>Podrás agregar todos los proyectos y tareas que quieras, editar el nombre de las tareas, marcarlas como completas o incompletas, eliminar tareas o incluso eliminar un proyecto con todo su contenido</strong>
 </br>
+</br>
 <img src= "https://raw.githubusercontent.com/JairoPonti/mernTasks/main/client/src/ScreenShots/img11.PNG"/>
 </br>
 </br>
